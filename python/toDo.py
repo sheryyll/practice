@@ -15,24 +15,29 @@ while True:
         print("Task added!")
 
     elif choice == "2":
-        if not todos:
+        if len(todos) == 0:
             print("No tasks available.")
         else:
             print("\nYour Tasks:")
-            for i, task in enumerate(todos, start=1):
-                print(f"{i}. {task}")
+            i = 1
+            for task in todos:
+                print(i, ".", task)
+                i += 1
 
     elif choice == "3":
-        if not todos:
+        if len(todos) == 0:
             print("No tasks to remove.")
         else:
-            for i, task in enumerate(todos, start=1):
-                print(f"{i}. {task}")
+            i = 1
+            for task in todos:
+                print(i, ".", task)
+                i += 1
+
             index = int(input("Enter task number to remove: ")) - 1
 
-            if 0 <= index < len(todos):
+            if index >= 0 and index < len(todos):
                 removed = todos.pop(index)
-                print(f"Removed: {removed}")
+                print("Removed:", removed)
             else:
                 print("Invalid task number.")
 
